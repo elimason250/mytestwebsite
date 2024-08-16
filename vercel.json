@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "./src/index.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "includePaths": ["./src/css", "./src/js"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "index.html"
+    },
+    {
+      "src": "/about",
+      "dest": "about.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600"
+        }
+      ]
+    }
+  ]
+}
